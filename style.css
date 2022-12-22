@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(344deg, rgba(40, 40, 55, 1) 0%, rgba(16, 16, 18, 1) 50%);
+}
+
+.bubble {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    overflow: hidden;
+    animation: moveBubble 6s ease-in-out infinite;
+}
+
+@keyframes moveBubble {
+    0%, 100% {
+        transform: translateY(-25px);
+    }
+    50% {
+        transform: translateY(25px);
+    }
+}
+
+.leftW {
+    position: absolute;
+    border-radius: 50%;
+    inset: 10px;
+    border-left: 10px solid white;
+    filter: blur(10px);
+}
+
+.bottomW {
+    position: absolute;
+    border-radius: 50%;
+    inset: 10px;
+    border-bottom: 5px solid white;
+    filter: blur(10px);
+}
+
+.dot {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    filter: blur(10px);
+    z-index: 3;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    cursor: pointer;
+}
+
+ion-icon {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.25);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6em;
+    transition: 0.1s;
+}
+
+input:checked[type="checkbox"] ~ ion-icon {
+    color: #00ff40;
+}
